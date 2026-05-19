@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章同步助手 - 设置</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="options-app">
+    <header class="header">
+      <h1 class="header-title">文章同步助手 - 设置</h1>
+    </header>
+
+    <main class="main">
+      <section class="card">
+        <h2 class="card-title">系统配置</h2>
+        <div class="form-group">
+          <label class="form-label" for="serverUrl">自有系统地址</label>
+          <input class="form-input" type="url" id="serverUrl" placeholder="https://your-system.example.com">
+          <div class="form-hint">自有系统REST API的根地址</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="wsUrl">WebSocket地址</label>
+          <input class="form-input" type="url" id="wsUrl" placeholder="wss://your-system.example.com/ws">
+          <div class="form-hint">实时通信WebSocket地址，用于接收同步指令</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="card-title">扩展配置</h2>
+        <div class="form-group">
+          <label class="form-label" for="concurrency">并发数</label>
+          <input class="form-input" type="number" id="concurrency" min="1" max="10" value="3">
+          <div class="form-hint">同时执行的最大同步任务数（1-10）</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="scriptUpdateInterval">脚本更新间隔（分钟）</label>
+          <input class="form-input" type="number" id="scriptUpdateInterval" min="5" max="1440" value="60">
+          <div class="form-hint">从自有系统拉取平台脚本更新的间隔时间</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">自动同步</label>
+          <div class="form-switch">
+            <input type="checkbox" id="autoSync">
+            <label for="autoSync" class="switch-label"></label>
+            <span class="switch-text">接收WebSocket指令时自动开始同步</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">调试模式</label>
+          <div class="form-switch">
+            <input type="checkbox" id="debugMode">
+            <label for="debugMode" class="switch-label"></label>
+            <span class="switch-text">启用详细日志输出</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="card-title">操作</h2>
+        <div class="action-group">
+          <button class="btn btn-primary" id="btnSave">保存配置</button>
+          <button class="btn btn-outline" id="btnTestConnection">测试连接</button>
+          <button class="btn btn-outline" id="btnUpdateScripts">立即更新脚本</button>
+          <button class="btn btn-danger" id="btnClearCache">清除缓存</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="card-title">扩展状态</h2>
+        <div class="status-grid">
+          <div class="status-item">
+            <div class="status-label">连接状态</div>
+            <div class="status-value" id="statusConnection">未连接</div>
+          </div>
+          <div class="status-item">
+            <div class="status-label">已注册平台</div>
+            <div class="status-value" id="statusPlatforms">0</div>
+          </div>
+          <div class="status-item">
+            <div class="status-label">运行中任务</div>
+            <div class="status-value" id="statusRunning">0</div>
+          </div>
+          <div class="status-item">
+            <div class="status-label">脚本缓存</div>
+            <div class="status-value" id="statusCache">0</div>
+          </div>
+          <div class="status-item">
+            <div class="status-label">扩展版本</div>
+            <div class="status-value">1.0.0</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

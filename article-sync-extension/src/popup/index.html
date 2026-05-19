@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章同步助手</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1 class="header-title">文章同步助手</h1>
+      <span class="header-status" id="connectionStatus">未连接</span>
+    </header>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="sync">同步</button>
+      <button class="tab" data-tab="tasks">任务</button>
+    </div>
+
+    <div class="tab-content active" id="tab-sync">
+      <section class="section">
+        <h2 class="section-title">选择文章</h2>
+        <div class="article-source">
+          <button class="btn btn-outline" id="btnFromSystem">从系统获取</button>
+          <button class="btn btn-outline" id="btnFromPage">从当前页面提取</button>
+        </div>
+        <div class="article-list" id="articleList">
+          <div class="empty-state">暂无文章，请从系统获取或从当前页面提取</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">选择平台</h2>
+        <div class="platform-list" id="platformList">
+          <div class="empty-state">加载中...</div>
+        </div>
+      </section>
+
+      <button class="btn btn-primary btn-block" id="btnStartSync" disabled>开始同步</button>
+    </div>
+
+    <div class="tab-content" id="tab-tasks">
+      <div class="task-list" id="taskList">
+        <div class="empty-state">暂无同步任务</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
