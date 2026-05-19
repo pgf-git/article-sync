@@ -1,0 +1,11 @@
+{
+  "name": "article-sync-web",
+  "version": "1.0.0",
+  "description": "Article Sync Web Management System",
+  "scripts": {
+    "dev": "serve -s . -l 8080"
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  }
+}
