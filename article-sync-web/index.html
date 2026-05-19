@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文章同步管理系统</title>
+  <link rel="stylesheet" href="css/global.css">
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">📄</div>
+      <div class="sidebar-title">文章同步</div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#/dashboard" class="nav-item active" data-route="/dashboard">
+        <span class="nav-icon">📊</span>
+        <span class="nav-text">仪表盘</span>
+      </a>
+      <a href="#/articles" class="nav-item" data-route="/articles">
+        <span class="nav-icon">📝</span>
+        <span class="nav-text">文章管理</span>
+      </a>
+      <a href="#/platforms" class="nav-item" data-route="/platforms">
+        <span class="nav-icon">🖥️</span>
+        <span class="nav-text">平台管理</span>
+      </a>
+      <a href="#/sync-tasks" class="nav-item" data-route="/sync-tasks">
+        <span class="nav-icon">🔄</span>
+        <span class="nav-text">同步任务</span>
+      </a>
+      <a href="#/script-editor" class="nav-item" data-route="/script-editor">
+        <span class="nav-icon">🔧</span>
+        <span class="nav-text">脚本调试</span>
+      </a>
+      <a href="#/settings" class="nav-item" data-route="/settings">
+        <span class="nav-icon">⚙️</span>
+        <span class="nav-text">系统设置</span>
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="extension-status" id="extensionStatus">
+        <span class="status-dot offline"></span>
+        <span class="status-text">扩展离线</span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="main-wrapper">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+        <h1 class="topbar-title" id="pageTitle">仪表盘</h1>
+      </div>
+      <div class="topbar-right">
+        <div class="extension-indicator" id="extensionIndicator">
+          <span class="indicator-dot offline"></span>
+          <span class="indicator-text">扩展离线</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="content" id="mainContent">
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>加载中...</p>
+      </div>
+    </main>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle"></h3>
+        <button class="modal-close" id="modalClose">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer" id="modalFooter"></div>
+    </div>
+  </div>
+  <div class="confirm-overlay" id="confirmOverlay">
+    <div class="confirm-dialog">
+      <div class="confirm-icon" id="confirmIcon">⚠️</div>
+      <h3 class="confirm-title" id="confirmTitle"></h3>
+      <p class="confirm-message" id="confirmMessage"></p>
+      <div class="confirm-actions">
+        <button class="btn btn-default" id="confirmCancel">取消</button>
+        <button class="btn btn-primary" id="confirmOk">确定</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script src="js/pages/article-sync-sdk.js"></script>
+  <script src="js/pages/dashboard.js"></script>
+  <script src="js/pages/articles.js"></script>
+  <script src="js/pages/platforms.js"></script>
+  <script src="js/pages/sync-tasks.js"></script>
+  <script src="js/pages/script-editor.js"></script>
+  <script src="js/pages/settings.js"></script>
+</body>
+</html>
